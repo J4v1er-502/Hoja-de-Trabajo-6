@@ -3,6 +3,10 @@ class Main {
 
         Controller controller = new Controller();
 
+        controller.instanceFatory();
+        controller.readFile();
+        controller.startProgram();
 
     }
+    
 }
