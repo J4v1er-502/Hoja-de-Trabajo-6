@@ -8,21 +8,21 @@ import java.util.Scanner;
 
 public class Controller {
 
-     // Utilidades
-     private Scanner sc = new Scanner(System.in);
-     private Scanner scInt = new Scanner(System.in);
- 
-     String src = "./ListadoProducto.txt";
-     File archivo = null;
-     FileReader fr = null;
-     BufferedReader br = null;
- 
-     // Implementación MAP
-     private FactoryMap factoryMap = new FactoryMap();
-     private IMap<String, List<String>> collection;
-     private IMap<String, List<String>> inventary;
-     private List<String> categories = new ArrayList<String>();
- 
+    // Utilidades
+    private Scanner sc = new Scanner(System.in);
+    private Scanner scInt = new Scanner(System.in);
+
+    String src = "./ListadoProducto.txt";
+    File archivo = null;
+    FileReader fr = null;
+    BufferedReader br = null;
+
+    // Implementación MAP
+    private FactoryMap factoryMap = new FactoryMap();
+    private IMap<String, List<String>> collection;
+    private IMap<String, List<String>> inventary;
+    private List<String> categories = new ArrayList<String>();
+
     /*
      * Indica el tipo de implementación de MAP que se utilizara
      */
@@ -43,7 +43,7 @@ public class Controller {
 
     }
 
-     /*
+    /*
      * Lee el archivo y guarda los datos en el inventario
      */
     public void readFile() {
@@ -148,7 +148,7 @@ public class Controller {
 
     }
 
-   /*
+    /*
      * Agrega un producto del inventario a la coleccion del usuario
      */
     public void addProductToCollection() {
@@ -210,7 +210,6 @@ public class Controller {
 
     }
 
-
     /*
      * Muestra de forma visual el contenido de un IMAP, ya sea el inventario o la
      * coleccion del usuario
@@ -239,8 +238,7 @@ public class Controller {
 
     }
 
-
-     /*
+    /*
      * Busca el producto en el inventario y muestra de que categoria es
      */
     public void showCategoryOfAProduct() {
@@ -268,7 +266,7 @@ public class Controller {
         pressAnyKeyToContinue();
 
     }
-    
+
     /*
      * Espera a que el usuario presione una tecla para continuar la ejecución
      */
@@ -281,6 +279,5 @@ public class Controller {
         } catch (Exception e) {
         }
     }
-
 
 }
