@@ -243,8 +243,32 @@ public class Controller {
      /*
      * Busca el producto en el inventario y muestra de que categoria es
      */
-    public void showCategoryOfAProduct() {}
+    public void showCategoryOfAProduct() {
+        System.out.println("\n :: MOSTRAR CATEGORIA DE UN PRODUCTO ::\n");
 
+        System.out.print("-> Ingrese el nombre de un producto: ");
+        String product = sc.nextLine();
+
+        String tempCategory = "";
+
+        for (int i = 0; i < categories.size(); i++) {
+
+            List<String> products = inventary.get(categories.get(i));
+
+            for (int e = 0; e < products.size(); e++) {
+                if (products.get(e).equals(product)) {
+                    tempCategory = categories.get(i);
+                }
+            }
+
+        }
+
+        System.out.println("\n [OK] El producto ingresado pertence a la categoria: ");
+        System.out.println("         -> " + tempCategory + "\n");
+        pressAnyKeyToContinue();
+
+    }
+    
     /*
      * Espera a que el usuario presione una tecla para continuar la ejecución
      */
