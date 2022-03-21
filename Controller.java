@@ -148,10 +148,68 @@ public class Controller {
 
     }
 
-    /*
+   /*
      * Agrega un producto del inventario a la coleccion del usuario
      */
-    public void addProductToCollection(){}
+    public void addProductToCollection() {
+
+        Boolean isActive = true;
+
+        while (isActive) {
+
+            System.out.println("\n :: AGREGAR PRODUCTOS A LA COLECCION ::");
+
+            System.out.print("\n-> Ingrese el nombre de una category (X -> salir): ");
+            String category = sc.nextLine().toUpperCase();
+
+            if (category.equals("X")) {
+                isActive = false;
+                break;
+
+            } else {
+
+                List<String> products = inventary.get(category);
+
+                if (products == null) {
+                    System.out.println("[!] La categoria que desea ingresar no existe");
+                } else {
+
+                    for (int i = 0; i < products.size(); i++) {
+                        System.out.println((i + 1) + ". " + products.get(i));
+                    }
+
+                    System.out.print("\n-> Ingrese el numero de un producto ");
+                    int productIndex = scInt.nextInt();
+                    productIndex = productIndex - 1;
+
+                    if (productIndex > products.size() || productIndex < 1) {
+                        System.out.println("\n[!] No existe ese producto");
+                    } else {
+
+                        // Revisa si existe la categoria, si no existe la creo
+                        if (collection.get(category) != null) {
+
+                            List<String> currentList = collection.get(category);
+                            currentList.add(products.get(productIndex));
+                            collection.put(category, currentList);
+
+                        } else {
+                            List<String> newList = new ArrayList<String>();
+                            newList.add(products.get(productIndex));
+                            collection.put(category, newList);
+                        }
+
+                        System.out.println("\n[OK] Producto agregado exitosamente");
+
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
 
     /*
      * Muestra de forma visual el contenido de un IMAP, ya sea el inventario o la
