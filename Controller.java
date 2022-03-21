@@ -215,7 +215,30 @@ public class Controller {
      * Muestra de forma visual el contenido de un IMAP, ya sea el inventario o la
      * coleccion del usuario
      */
-    public void showIMAP() {}
+    public void showIMAP(IMap<String, List<String>> tempList, Boolean isSort) {
+
+        if (isSort) {
+            Collections.sort(categories);
+        }
+
+        for (int i = 0; i < categories.size(); i++) {
+
+            List<String> products = tempList.get(categories.get(i));
+
+            if (products != null) {
+                System.out.println("\n-> " + categories.get(i));
+
+                for (int e = 0; e < products.size(); e++) {
+                    System.out.println("  - " + products.get(e) + "| 1");
+                }
+
+            }
+        }
+
+        pressAnyKeyToContinue();
+
+    }
+
 
      /*
      * Busca el producto en el inventario y muestra de que categoria es
