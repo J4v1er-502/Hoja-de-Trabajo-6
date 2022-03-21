@@ -26,7 +26,22 @@ public class Controller {
     /*
      * Indica el tipo de implementación de MAP que se utilizara
      */
-    public void instanceFatory() {}
+    public void instanceFatory() {
+        System.out.println(" :: TIENDA ONLINE ::");
+
+        // Implementar patron de diseño Factory para seleccionar que tipo de MAP
+        // utilizara
+        System.out.println("Ingrese que MAP implementara: ");
+        System.out.println("1. HashMAP");
+        System.out.println("2. TreeMAP");
+        System.out.println("3. LinkedHashMap");
+        Integer optionMAP = scInt.nextInt();
+
+        // Instanciar el tipo de MAP que se utilizara
+        collection = factoryMap.getMap(optionMAP);
+        inventary = factoryMap.getMap(optionMAP);
+
+    }
 
      /*
      * Lee el archivo y guarda los datos en el inventario
