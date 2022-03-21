@@ -46,7 +46,53 @@ public class Controller {
      /*
      * Lee el archivo y guarda los datos en el inventario
      */
-    public void readFile() {}
+    public void readFile() {
+        // Leer el archivo de texto
+        try {
+            archivo = new File(src);
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+        } catch (Exception e) {
+            System.out.println("[!] No se encontro el archivo");
+        }
+
+        try {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+
+                String[] products = linea.replace("|", ",").split(",");
+                String category = products[0].trim().toUpperCase();
+                String product = products[1].trim();
+
+                try {
+
+                    // Revisa si existe la categoria, si no existe la crea
+                    if (inventary.get(category) != null) { // Existe la categoria
+
+                        List<String> currentList = inventary.get(category);
+                        currentList.add(product);
+                        inventary.put(category, currentList);
+
+                    } else { // No existe la categoria
+
+                        List<String> newList = new ArrayList<String>();
+                        newList.add(product);
+                        inventary.put(category, newList);
+                        categories.add(category);
+
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("[!] Error al agregar producto al inventario");
+                }
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("[!] Error al leer el archivo ListadoProductos");
+        }
+        // Recorre todas las lineas del archivo
+    }
 
      /*
      * Muestra al usuario las opciónes disponibles
