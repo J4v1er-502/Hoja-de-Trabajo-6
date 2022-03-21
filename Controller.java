@@ -57,7 +57,15 @@ public class Controller {
     /*
      * Espera a que el usuario presione una tecla para continuar la ejecución
      */
-    public void pressAnyKeyToContinue(){}
+    public void pressAnyKeyToContinue() {
+        String seguir;
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("\n [] Presiona enter para continuar ... \n");
+        try {
+            seguir = teclado.nextLine();
+        } catch (Exception e) {
+        }
+    }
 
 
 }
