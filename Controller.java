@@ -94,10 +94,59 @@ public class Controller {
         // Recorre todas las lineas del archivo
     }
 
-     /*
+    /*
      * Muestra al usuario las opciónes disponibles
      */
-    public void startProgram() {}
+    public void startProgram() {
+
+        boolean isActive = true;
+
+        while (isActive) {
+            System.out.println("\n :: TIENDA ONLINE ::");
+
+            System.out.println("1. Agregar producto a la collecion");
+            System.out.println("2. Mostrar categoria de un producto");
+            System.out.println("3. Mostrar coleccion del usuario");
+            System.out.println("4. Mostrar coleccion del usuario (Ordenados por categoria)");
+            System.out.println("5. Mostrar inventario");
+            System.out.println("6. Mostrar inventario (Ordenados por categoria)");
+            System.out.println("7. Salir");
+            Integer option = scInt.nextInt();
+
+            if (option == 1) {
+
+                addProductToCollection();
+
+            } else if (option == 2) {
+                showCategoryOfAProduct();
+
+            } else if (option == 3) {
+                System.out.println("\n :: COLECCION ::\n");
+                showIMAP(collection, false);
+
+            } else if (option == 4) {
+                System.out.println("\n :: COLECCION ORDENADA POR CATEGORIA ::\n");
+                showIMAP(collection, true);
+
+            } else if (option == 5) {
+
+                System.out.println("\n :: INVENTARIO ::\n");
+                showIMAP(inventary, false);
+
+            } else if (option == 6) {
+                System.out.println("\n :: INVENTARIO ORDENADA POR CATEGORIA  ::\n");
+                showIMAP(inventary, true);
+
+            } else if (option == 7) {
+
+                isActive = false;
+                System.out.println("Finalizando programa ...");
+                break;
+            }
+
+        }
+
+    }
 
     /*
      * Agrega un producto del inventario a la coleccion del usuario
